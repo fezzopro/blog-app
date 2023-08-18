@@ -32,5 +32,5 @@ RSpec.describe Comment, type: :model do
       expect(post1.comments_counter).to eq(2)
     end
   end
-  
+
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
   let(:user) { User.create(name: 'Test User', post_counter: 0) }
   subject do
     Post.new(author_id: user.id, title: 'Test Post', text: 'Test Post Content', comments_counter: 1, likes_counter: 1)
@@ -36,7 +35,8 @@ RSpec.describe Post, type: :model do
   context 'Method tests suit' do
     it 'Should return recent comments as per given arguments' do
       user = User.create(name: 'Test User', photo: 'image_url', bio: 'For Testing Purpose', post_counter: 0)
-      post1 = Post.create(author: user, title: 'Post Title', text: 'Post Text Content', comments_counter: 1, likes_counter: 1)
+      post1 =
+        Post.create(author: user, title: 'Post Title', text: 'Post Text Content', comments_counter: 1, likes_counter: 1)
       comment1 = Comment.create(post: post1, author: user, text: 'First Comment')
       comment2 = Comment.create(post: post1, author: user, text: 'Second Comment')
       comment3 = Comment.create(post: post1, author: user, text: 'Third Comment')
