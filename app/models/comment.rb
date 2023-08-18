@@ -6,7 +6,7 @@ class Comment < ApplicationRecord
   after_destroy :update_comments_counter
 
   def update_comments_counter
-    post.update(comments_counter: user.comments.count)
+    post.update(comments_counter: post.comments.count)
   end
 
   private :update_comments_counter
