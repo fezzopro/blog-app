@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   let(:user) do
-    { 'id': 1 }
-  end 
+    { id: 1 }
+  end
 
   let(:post) do
-    { 'id': 1 }
-  end 
+    { id: 1 }
+  end
 
   describe 'main post\'s page' do
     it 'should render the main page successfully' do

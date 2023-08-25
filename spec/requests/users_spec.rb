@@ -13,7 +13,7 @@ RSpec.describe 'Users', type: :request do
 
     it 'should return HTTP 200 status code' do
       get '/users'
-      expect(response.status).to eq(200) 
+      expect(response.status).to eq(200)
     end
 
     it 'should render users view template' do
@@ -24,14 +24,14 @@ RSpec.describe 'Users', type: :request do
 
     it 'should return the correct content' do
       get '/users'
-      expect(response.body).to include('All users View') 
+      expect(response.body).to include('All users View')
     end
   end
 
-  let(:user) do { 
-    'id': 1
-   }
+  let(:user) do
+    { id: 1 }
   end
+
   describe 'show page' do
     it 'renders specific users\'s detail page successfully' do
       get "/users/#{user[:id]}"
