@@ -1,0 +1,11 @@
+<%= form_with(model: @comment, url: users_path(@user, @post),
+        local: true, html: { class: "comment-form" }) do |f| %>
+  <div>
+    <br><br>
+    <%= f.label :Text %>
+    <%= f.text_area :Text, rows: 3, class: "border" %>
+  </div>
+  <div class="form-submit">
+    <%= f.submit "Post Comment", class: 'button' %>
+  </div>
+<% end %>
