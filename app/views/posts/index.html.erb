@@ -1,1 +1,43 @@
-<h1>All posts by single user (:id) View</h1>
+<section class='flex flex-column users-view-section'>
+  <div class="flex flex-row card">
+    
+  </div>
+  <div class="flex flex-row card">
+    <% if @user %>
+      <img class='user-image' src=<%= @user.photo %> />
+      <div class='flex flex-row user-blog-info'>
+        <span class='flex flex-column user-blog-username'><%= @user.name %></span>
+        <span class='flex flex-column user-blog-posts'>Number of Posts: <%= @user.post_counter || 0 %></span>
+      </div>
+    <% end %>
+  </div>
+
+  <ul  class="flex flex-column users-list">
+    <% @posts.each do |post| %>
+      <li>
+        <div>
+          <h4>
+            <%= link_to post.title, "posts/#{post.id}" %>
+          </h4>
+          <%= post.text %>
+          <div class="flex flex-row user-blog-posts">
+            <span>Comments: <%= post.comments_counter || 0 %></span>
+            <span>Likes: <%= post.likes_counter || 0 %></span>
+          </div>
+        </div>
+      </li>
+      <ul class="flex flex-column users-list">
+        <% if post.recent_comments.any? %>
+          <% post.comments.each do |comment| %>
+            <li>
+              <%= comment.author.name + ": " + comment.text%>
+            </li>
+          <% end %>
+        <% else %>
+          <li>No comments added yet.</li>
+        <% end %>
+      </ul>
+    <% end %>
+  </ul>
+  
+</section>
