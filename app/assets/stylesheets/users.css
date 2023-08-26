@@ -63,3 +63,7 @@ body {
   text-decoration: none;
   border-radius: 4%;
 }
+
+footer {
+  padding-top: 5% !important;
+}
