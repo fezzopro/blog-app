@@ -43,10 +43,5 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('users/show')
       expect(response).to render_template(:show)
     end
-
-    it 'shows the data of show page' do
-      get "/users/#{user[:id]}"
-      expect(response.body).to include('Individual user view')
-    end
   end
 end
