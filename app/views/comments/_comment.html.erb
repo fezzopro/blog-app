@@ -1,11 +1,10 @@
-<%= form_with(model: @comment, url: users_path(@user, @post),
-        local: true, html: { class: "comment-form" }) do |f| %>
-  <div>
-    <br><br>
-    <%= f.label :Text %>
-    <%= f.text_area :Text, rows: 3, class: "border" %>
+<%= form_with(model: @comment, url: user_post_comments_path(@current_user, @post),
+        local: true, html: { class: "flex flex-column" }) do |f| %>
+  <div class="flex flex-column button-control">
+    <%= f.label :'New Comment' %>
+    <%= f.text_area :text, rows: 3, class: "border" %>
   </div>
-  <div class="form-submit">
+  <div class="flex flex-row">
     <%= f.submit "Post Comment", class: 'button' %>
   </div>
 <% end %>
