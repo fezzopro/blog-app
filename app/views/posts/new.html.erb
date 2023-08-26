@@ -1,0 +1,19 @@
+<section class='flex flex-column users-view-section'>
+  <h1 class="form-title">Add New Post</h1>
+
+  <%= form_with(model: @post, url: user_posts_path(@current_user), local: true, html: { class: "flex flex-column post-form" }) do |f| %>
+    <div class="flex flex-column">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'border' %>
+    </div>
+    <div class="flex flex-column">
+      <%= f.label :text %>
+      <%= f.text_area :text, size: "70x5", class: "border" %>
+    </div>
+    <br>
+    <div class=" flex flex-row">
+      <%= f.submit "Create Post", class: "button" %>
+      <%= link_to "Cancel", "./../posts", class: "button" %>
+    </div>
+  <% end %>
+</section>

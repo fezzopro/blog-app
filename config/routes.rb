@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'pages/index'
-  get '/users/:user_id/posts', to: 'posts#index'
-  get '/users/:user_id/posts/:id', to: 'posts#show'
-  get '/users', to: 'users#index'
-  get '/users/:id', to: 'users#show'
+  resources :users, only: [:index, :show] do
+    resources :posts, only: [:index, :show, :new, :create] do
+      resources :comments, only: [:new, :create]
+      resources :likes, only: [:create, :destroy]
+      get 'likes', to: 'likes#like', on: :member
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ('/')

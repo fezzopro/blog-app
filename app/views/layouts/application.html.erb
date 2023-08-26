@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <section class='flex flex-column users-view-section'>
+      <div class="flash-notice">
+        <% if flash[:notice] %>
+          <p class="success-notice"><%= flash[:notice] %></p>
+        <% end %>
+      </div>
+    </section>
     <%= yield %>
   </body>
 </html>
