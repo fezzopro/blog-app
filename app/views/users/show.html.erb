@@ -22,6 +22,7 @@
   <% end %>
   <div>
     <%= link_to "See all posts", "#{@user.id}/posts", class: "button" if @user.post_counter  %>
+    <%= link_to "New Post", "#{@user.id}/posts/new", class: "button" %>
   </div>
 </section>
 
