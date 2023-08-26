@@ -1,1 +1,28 @@
-<h1>Individual user view</h1>
+<section class="flex flex-column users-view-section">
+
+  <div class="flex flex-row card">
+    <img class='user-image' src=<%= @user.photo %> />
+    <div class='flex flex-row user-blog-info'>
+      <span class='flex flex-column user-blog-username'><%=  @user.name%></span>
+      <span class='flex flex-column user-blog-posts'>Number of Posts: <%= @user.post_counter || 0 %></span>
+    </div>
+  </div>
+  <div class="flex flex-column">
+  Bio:
+    <p>
+      <%= @user.bio%>
+    </p>
+  </div>
+  <% @posts.each do |post| %>
+    <div class="flex flex-column">
+      <p><%= post.title%></p>
+      <p><%= post.text%></p>
+      <p class="flex user-blog-posts numbers-size">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to "See all posts", "#{@user.id}/posts", class: "button" if @user.post_counter  %>
+  </div>
+</section>
+
+<%= render "layouts/footer" %>

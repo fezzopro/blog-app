@@ -1,1 +1,17 @@
-<h1>All users View</h1>
+<section class='flex flex-column users-view-section'>
+  <ul class="flex flex-column users-list">
+    <% @users.each do |user| %>
+      <li class='flex flex-row'>
+        <div class="flex flex-row card">
+          <img class='user-image' src=<%= user.photo %> />
+          <div class='flex flex-row user-blog-info'>
+            <span class='flex flex-column user-blog-username'><%= link_to user.name, "users/#{user.id}" %></span>
+            <span class='flex flex-column user-blog-posts'>Number of Posts: <%= user.post_counter || 0 %></span>
+          </div>
+        </div>
+      <li>
+    <% end %>
+  </ul>
+</section>
+
+<%= render "layouts/footer" %>

@@ -1,1 +1,27 @@
-<h1>Individual post by single user(:id) view</h1>
+<section class='flex flex-column users-view-section'>
+<div class="flex flex-row card">
+    <% if @post.author %>
+      <img class='user-image' src=<%= @post.author.photo %> />
+      <div class='flex flex-row user-blog-info'>
+        <span class='flex flex-column user-blog-username'><%= @post.author.name %></span>
+        <span class='flex flex-column user-blog-posts'>Number of Posts: <%= @post.author.post_counter || 0 %></span>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="flex flex-column">
+    <div class="flex flex-row">
+      <%= @post.title%> by <%= @post.author.name %>
+      <span class="flex flex-column user-blog-posts">Comments: <%= @post.comments_counter || 0 %> Likes: <%= @post.likes_counter || 0%> </span>
+    </div>
+    <p><%= @post.text%></p>
+  </div>
+  <div class="flex flex-column">
+    <% @post.comments.each do |comment| %>
+        <span><%= comment.author.name %>: <%= comment.text %>
+        </span>
+    <% end %>
+  </div>
+</section>
+
+<%= render "layouts/footer" %>
