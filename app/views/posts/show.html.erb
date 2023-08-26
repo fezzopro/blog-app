@@ -21,6 +21,10 @@
         <span><%= comment.author.name %>: <%= comment.text %>
         </span>
     <% end %>
+    <div class="flex flex-column">
+      <%= render partial: 'comments/comment', locals: { comment: @comment, user: @user, post: @post } %>
+      <%= render partial: 'likes/like', locals: { post: @post } %>
+    </div>
   </div>
   
   <div class="button-control">

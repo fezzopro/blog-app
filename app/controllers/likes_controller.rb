@@ -15,9 +15,9 @@ class LikesController < ApplicationController
     @post = @like.post
 
     if @like.destroy
-      redirect_to user_post_path(user_id: @post.author_id, id: @post.id), notice: 'Post unliked successfully.'
+      redirect_to user_post_path(user_id: @post.author_id, id: @post.id), notice: 'Post unliked.'
     else
-      redirect_to user_post_path(user_id: @post.author_id, id: @post.id), alert: 'Failed to unlike the post.'
+      redirect_to user_post_path(user_id: @post.author_id, id: @post.id), alert: 'Failed to unlike.'
     end
   end
 end
