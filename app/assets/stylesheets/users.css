@@ -64,6 +64,15 @@ body {
   border-radius: 4%;
 }
 
+.button-control {
+  padding-top: 5%;
+}
+
+.success-notice {
+  color: green;
+  font-size: 2rem;
+}
+
 footer {
   padding-top: 5% !important;
 }

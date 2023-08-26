@@ -20,7 +20,7 @@
       <p class="flex user-blog-posts numbers-size">Comments: <%= post.comments_counter || 0 %> Likes: <%= post.likes_counter || 0%> </p>
     </div>
   <% end %>
-  <div>
+  <div class="button-control">
     <%= link_to "See all posts", "#{@user.id}/posts", class: "button" if @user.post_counter  %>
     <%= link_to "New Post", "#{@user.id}/posts/new", class: "button" %>
   </div>
