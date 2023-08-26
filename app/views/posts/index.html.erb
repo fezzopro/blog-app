@@ -28,7 +28,7 @@
       </li>
       <ul class="flex flex-column users-list">
         <% if post.recent_comments.any? %>
-          <% post.comments.each do |comment| %>
+          <% post.recent_comments.each do |comment| %>
             <li>
               <%= comment.author.name + ": " + comment.text%>
             </li>
