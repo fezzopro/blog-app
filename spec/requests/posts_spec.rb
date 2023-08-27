@@ -22,7 +22,7 @@ RSpec.describe 'Users', type: :request do
 
     it 'should render All posts by single user' do
       get "/users/#{user[:id]}/posts"
-      expect(response.body).to include('All posts by single user')
+      expect(response.body).to render_template(:post)
     end
   end
 

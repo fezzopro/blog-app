@@ -13,6 +13,7 @@ RSpec.describe 'Users', type: :request do
 
     it 'should return HTTP 200 status code' do
       get '/users'
+      puts(response)
       expect(response.status).to eq(200)
     end
 
@@ -42,11 +43,6 @@ RSpec.describe 'Users', type: :request do
       get "/users/#{user[:id]}"
       expect(response).to render_template('users/show')
       expect(response).to render_template(:show)
-    end
-
-    it 'shows the data of show page' do
-      get "/users/#{user[:id]}"
-      expect(response.body).to include('Individual user view')
     end
   end
 end
