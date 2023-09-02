@@ -1,7 +1,7 @@
 <section class='flex flex-column users-view-section'>
   <h1 class="form-title">Add New Post</h1>
 
-  <%= form_with(model: @post, url: user_posts_path(@current_user), local: true, html: { class: "flex flex-column post-form" }) do |f| %>
+  <%= form_with(model: @post, url: user_posts_path(current_user), local: true, html: { class: "flex flex-column post-form" }) do |f| %>
     <div class="flex flex-column">
       <%= f.label :title %>
       <%= f.text_field :title, class: 'border' %>
