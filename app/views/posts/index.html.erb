@@ -1,60 +1,50 @@
-<h1>List Recent Posts of a User</h1>
-<%# Main diV %>
-<main id="posts" class="page">
-<%# Displaying the Home and back button %>
-<div id="user-page">
- <div class="btn-container">
-      <%= link_to "Home", root_path %>
+<section class='flex flex-column users-view-section'>
+  <div class="flex flex-row card">
+    
+  </div>
+  <div class="flex flex-row card">
+    <% if @user %>
+      <img class='user-image' src=<%= @user.photo %> alt='profile picture'/>
+      <div class='flex flex-row user-blog-info'>
+        <span class='flex flex-column user-blog-username'><%= @user.name %></span>
+        <span class='flex flex-column user-blog-posts'>Number of Posts: <%= @user.post_counter || 0 %></span>
+      </div>
+    <% end %>
+  </div>
 
-
-      <div class="back-link-container">
-        <%= link_to "Back", :back, class: "back-link2" %> 
-    </div> 
-    </div>
-</div>
-
-<div class="user-container posts">
-<%# Displaying the image in a div %>
-<div class="image-div">
- <%= image_tag('user.png', alt: 'User Profile Picture', :width => "100px", :heigth=>"100px") %>
- </div>
-<%# Displaying the user details in a div %>
- <div class="userdetails-div">
-<h3><%= @user.name %></h3>
-<p class="posts-counter">Number of posts: <%= @user.posts_counter%></p>
-</div>
-</div>
-<%# End of user profile %>
-<%# Looping through the posts of the user and displaying them %>
- <article class="post-article">
-<% @posts.each do |post| %>
-<div class="post-container">
-<h3 class="post-title"><%= link_to post.title, "posts/#{post.id}" %></h3>
-<div class="post-details">
-              <p class="details"><%= post.text[0..100]... %></p>
-            </div>
- <div class="comment-like-container">
-              <p class="coment-likes-data">
-                Comment: <%= post.comments_counter || 0 %>, Likes: <%= post.likes_counter || 0 %>
-              </p>
-            </div>
-</div>
-<%# Looping through the comments of the post and displaying them %>
-<ul class="post-comments-container">
-          <% if post.recent_comments.any? %>
-            <% post.recent_comments.each do |comment| %>
-              <li>
-                <p><%= User.find_by(id: comment.author_id).name %>: <%= comment.Text[0..60] %>...</p>
-              </li>
-            <% end %>
-          <% else %>
-            <li>No comments added yet.</li>
+  <ul  class="flex flex-column users-list">
+    <% @posts.each do |post| %>
+      <li>
+        <div>
+          <h4>
+            <%= link_to post.title, "posts/#{post.id}" %>
+          </h4>
+          <%= post.text %>
+          <div class="flex flex-row user-blog-posts">
+            <span>Comments: <%= post.comments_counter || 0 %></span>
+            <span>Likes: <%= post.likes_counter || 0 %></span>
+          </div>
+        </div>
+      </li>
+      <ul class="flex flex-column users-list">
+        <% if post.recent_comments.any? %>
+          <% post.recent_comments.each do |comment| %>
+            <li>
+              <%= comment.author.name + ": " + comment.text%>
+            </li>
           <% end %>
-        </ul>
-<%end%>
- </article>
- <br>
- <div class="see-posts">
-        <%= link_to "Pagination", "#", class: "see-link" %>
-    </div>
-</main>
+        <% else %>
+          <li>No comments added yet.</li>
+        <% end %>
+      </ul>
+    <% end %>
+  </ul>
+  
+  <div class="button-control">
+    <%= link_to "New Post", "./posts/new", class: "button" %>
+    <%= link_to "Back To Users", "./../../users", class: "button" %>
+  </div>
+  
+</section>
+
+<%= render "layouts/footer" %>

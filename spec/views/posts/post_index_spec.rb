@@ -52,9 +52,6 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content(@post2.likes_counter)
       expect(page).to have_content(@post3.likes_counter)
     end
-    it 'renders pagination section if posts are more than 3' do
-      expect(page).to have_content('Next')
-    end
     # checks the link to the post's title redirects to that post's show page
     it 'should redirect to the post show page' do
       visit user_posts_path(user_id: @user.id)

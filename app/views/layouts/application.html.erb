@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlogAppRails</title>
+    <title>BlogApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,12 +11,13 @@
   </head>
 
   <body>
-    <!-- Flash notice section -->
-    <div class="flash-notice">
-      <% if flash[:notice] %>
-        <p><%= flash[:notice] %></p>
-      <% end %>
-    </div>
+    <section class='flex flex-column users-view-section'>
+      <div class="flash-notice">
+        <% if flash[:notice] %>
+          <p class="success-notice"><%= flash[:notice] %></p>
+        <% end %>
+      </div>
+    </section>
     <%= yield %>
   </body>
 </html>

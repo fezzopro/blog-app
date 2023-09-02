@@ -1,20 +1,18 @@
-<h1>List all the Users </h1>
-<%# main div %>
-<main id="home" class="page">
-  <ul class="users-list">
-<%# Looping through the users %>
-<% @users.each do |user| %>
-<li class="user-container">
-<%# Displaying the image in a div %>
- <div class="image-div">
- <%= image_tag('user.png', alt: 'User Profile Picture', :width => "100px", :heigth=>"100px") %>
- </div>
-<%# Displaying the user details in a div %>
-<div class="userdetails-div">
-<h2><%= link_to user.name, "users/#{user.id}", class: "username-link" %></h2>
-<p class="posts-counter">Number of posts: <%= user.posts_counter || 0 %></p>
-</div>
-</li>
-<% end %>
-</ul>
-</main>
+<section class='flex flex-column users-view-section'>
+  <h2>All users</h2>
+  <ul class="flex flex-column users-list">
+    <% @users.each do |user| %>
+      <li class='flex flex-row'>
+        <div class="flex flex-row card">
+          <img class='user-image' src=<%= user.photo %> alt='profile picture'/>
+          <div class='flex flex-row user-blog-info'>
+            <span class='flex flex-column user-blog-username'><%= link_to user.name, "users/#{user.id}" %></span>
+            <span class='flex flex-column user-blog-posts'>Number of Posts: <%= user.post_counter || 0 %></span>
+          </div>
+        </div>
+      <li>
+    <% end %>
+  </ul>
+</section>
+
+<%= render "layouts/footer" %>

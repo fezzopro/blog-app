@@ -4,10 +4,10 @@ RSpec.describe 'Post show Page', type: :feature do
   describe 'Viewing Post Show page' do
     before(:each) do
       @user1 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos', bio: 'Teacher from Mexico.',
-                           posts_counter: 0)
+                           post_counter: 0)
       @first_post = Post.create(author: @user1, title: 'post1', text: 'This is my first post', comments_counter: 0,
                                 likes_counter: 0)
-      @comment1 = Comment.create(post: @first_post, author: @user1, Text: 'Hi Tom!, Nice comment')
+      @comment1 = Comment.create(post: @first_post, author: @user1, text: 'Hi Tom!, Nice comment')
 
       visit user_post_path(@user1, @first_post)
     end
@@ -33,7 +33,7 @@ RSpec.describe 'Post show Page', type: :feature do
     end
 
     it 'should show comment text' do
-      expect(page).to have_content(@comment1.Text)
+      expect(page).to have_content(@comment1.text)
     end
 
     it 'should show name of commenter' do

@@ -1,10 +1,5 @@
+<h1 align="center">BLOG-APP</h1>
 <a name="readme-top"></a>
-
-<div align="center">
-
-  <h1><b>Blog_App_Ruby_on_Rails</b></h1>
-
-</div>
 
 <!-- TABLE OF CONTENTS -->
 
@@ -12,69 +7,33 @@
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
   - [Run tests](#run-tests)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
-# 📖 Blog_App_Rails <a id="about-project"></a>
 
-The rails-blog-app is a classic example of a blog website. It will be fully up and a functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+# 📖 BLOG WEB APP <a name="about-project"></a>
+
+- This project about building a Blog web app using [Ruby on Rails and PostgreSQL](https://medium.com/@ethanryan/creating-a-new-rails-api-with-a-postgresql-database-488ffce649d9)
 
 ## 🛠 Built With <a name="built-with"></a>
 
-- Ruby
-
-### Tech Stack <a name="tech-stack"></a>
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li>Ruby</li>
-  </ul>
-</details>
-
-<details>
-  <summary>Test</summary>
-  <ul>
-    <li>RSPEC</li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li>PostgreSQL</li>
-  </ul>
-</details>
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-- Use database migration files to maintain database schema.
-- Understand ORM and database migrations and their implementation.
-- Processing data in models
-- Validations and Model specs
-- Setup and controllers
-- Controllers specs
-- Views Added
-- Adding Forms and partials
-- Fix n+1 problem and integration tests added
+- [Ruby on Rails (RoR)](https://guides.rubyonrails.org/index.html)
+- [PostgreSQL](https://www.postgresql.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Key Features
+
+- [Generate Rails models](https://guides.rubyonrails.org/getting_started.html#mvc-and-you-generating-a-model)
 
 <!-- GETTING STARTED -->
 
@@ -84,49 +43,64 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need: 
+In order to run this project you need `Ruby version >= 3.2`:
 
-Ruby on Rails installed and running. To get more information, read the installation guide.
+```sh
 
-PostgreSQL installed and running
+  Install Ruby & Ruby on Rails on your local machine
+
+```
 
 ### Setup
 
-Clone this [repository]() to your desired folder.
-git@github.com:baqar-abbas/blog-app-rails.git
+Clone this repository to your desired folder:
+
+```sh
+
+  RUN git clone https://github.com/fezzopro/blog-app.git
+  RUN cd blog-app
+
+```
 
 ### Install
 
-bundle install
+Install System dependencies with:
+
+```sh
+
+  RUN bundle install
+
+```
 
 ### Usage
 
-**To run the project follow the following instruction:-**
-  rails server or rails s
+To run the project, execute the following command:
+
+```sh
+
+  RUN db:migrate
+
+```
 
 ### Run tests
 
-To run tests, run the following command: 
+To run tests and check linters linter, run the following command:
 
-Tests will be implemented later on.
+```sh
+
+  RUN rubocop -A
+  RUN rspec
+
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
-
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Baqar Abbas**
+👤 **Felix KAMANA**
 
-- GitHub: [@Baqar](https://github.com/baqar-abbas)
-- Twitter: [@BaqarAbbas9](https://twitter.com/BaqarAbbas9)
-- LinkedIn: [Baqar Abbas](https://www.linkedin.com/in/baqar-abbas/)
-
-👤 **Paul Tesfaye**
-
-- GitHub: [@Paul](https://github.com/Paul-tes)
-- LinkedIn: [Paul Tesfaye ](https://www.linkedin.com/in/paul-tesfaye)
-
+- GitHub: [@githubhandle](https://github.com/fezzopro)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kamana-felix/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,12 +108,9 @@ Tests will be implemented later on.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Add authorization rules.
-- Integration specs for Views.
-- Add API endpoints.
-- API documentation.
-- Validations and Model specs.
-
+- [] Ruby on Rails Controller.
+- [] Ruby on Rails AUTHENTICATION & AUTHORIZATION
+- [] Ruby on Rails APIS
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -149,15 +120,13 @@ Tests will be implemented later on.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project give a ⭐️.
+If you like this project kindly give it a star⭐️.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,17 +134,7 @@ If you like this project give a ⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-- **Can I use this project?**
-
-  - It's MIT license, feel free to use as you like.
+I would like to thank Microverse for the idea for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

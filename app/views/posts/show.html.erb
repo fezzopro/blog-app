@@ -1,46 +1,35 @@
-<h1>Selected Post of a User</h1>
-<%# Main div %>
-<main id="post-index" class="page">
-  <%# Displaying the Home and back button %>
-<div id="user-page">
- <div class="btn-container">
-      <%= link_to "Home", root_path %>
-
-
-      <div class="back-link-container">
-        <%= link_to "Back", :back, class: "back-link2" %>
-    </div> 
+<section class='flex flex-column users-view-section'>
+<div class="flex flex-row card">
+    <% if @post.author %>
+      <img class='user-image' src=<%= @post.author.photo %> />
+      <div class='flex flex-row user-blog-info'>
+        <span class='flex flex-column user-blog-username'><%= @post.author.name %></span>
+        <span class='flex flex-column user-blog-posts'>Number of Posts: <%= @post.author.post_counter || 0 %></span>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="flex flex-column">
+    <div class="flex flex-row">
+      <%= @post.title%> by <%= @post.author.name %>
+      <span class="flex flex-column user-blog-posts">Comments: <%= @post.comments_counter || 0 %> Likes: <%= @post.likes_counter || 0%> </span>
     </div>
-</div>
-<%# Looping through the posts of the user and displaying them %>
-<article class="post-article2">
- <div class="info">
-          <div>
-            <h2 class="title"><%= @post.title %></h2>
-            <p class="user-name">by <%= @user.name %></p>
-          </div>
-          <p class="posts-counter3">
-            Comment: <%= @post.comments_counter || 0 %>, Likes: <%= @post.likes_counter || 0 %>
-          </div>
-          <div class="post-body">
-            <p><%= @post.text %></p>
-          </div>
-</article>
-<%# Looping through the comments of the post and displaying them %>
-  <ul class="post-comments-container">
-          <% if @comments.any?  %>
-            <% @comments.each do |comment| %>
-              <li>
-                <p><%= User.find_by(id: comment.author_id).name %>: <%= comment.Text %></p>
-              </li>
-            <% end %>
-          <% else %>
-            <li>No comments added yet...</li>
-          <% end %>
-        </ul>
-        <%= render partial: 'comments/comment_form', locals: { comment: @comment, user: @user, post: @post } %>
-        <br>
-         <%= render partial: 'likes/like_form', locals: { post: @post } %>
-</main>
+    <p><%= @post.text%></p>
+  </div>
+  <div class="flex flex-column">
+    <% @post.comments.each do |comment| %>
+        <span><%= comment.author.name %>: <%= comment.text %>
+        </span>
+    <% end %>
+    <div class="flex flex-column">
+      <%= render partial: 'comments/comment', locals: { comment: @comment, user: @user, post: @post } %>
+      <%= render partial: 'likes/like', locals: { post: @post } %>
+    </div>
+  </div>
+  
+  <div class="button-control">
+    <%= link_to "Back To Posts", "./../posts", class: "button" %>
+  </div>
+</section>
 
-
+<%= render "layouts/footer" %>

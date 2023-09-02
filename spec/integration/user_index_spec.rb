@@ -4,11 +4,11 @@ RSpec.feature 'User Index Page', type: :feature do
   let(:users) do
     [
       User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                  bio: 'Teacher from Poland.', posts_counter: 0),
+                  bio: 'Teacher from Poland.', post_counter: 0),
       User.create(name: 'John', photo: 'https://unsplash.com/photos/abc123',
-                  bio: 'Engineer from USA.', posts_counter: 2),
+                  bio: 'Engineer from USA.', post_counter: 2),
       User.create(name: 'Alice', photo: 'https://unsplash.com/photos/xyz456',
-                  bio: 'Artist from France.', posts_counter: 5)
+                  bio: 'Artist from France.', post_counter: 5)
     ]
   end
 
@@ -20,8 +20,8 @@ RSpec.feature 'User Index Page', type: :feature do
   scenario 'I can see the username, profile picture, and number of posts for each user' do
     users.each do |user|
       expect(page).to have_content(user.name)
-      expect(page).to have_selector('img[alt="User Profile Picture"]')
-      expect(page).to have_content(user.posts_counter)
+      expect(page).to have_selector('img[alt="profile picture"]')
+      expect(page).to have_content(user.post_counter)
     end
   end
 

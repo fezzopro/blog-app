@@ -20,6 +20,10 @@ class PostsController < ApplicationController
       flash[:notice] = 'Post created successfully.'
       redirect_to user_post_path(@current_user, @post)
     else
+      # Log validation errors
+      Rails.logger.error(@post.errors.full_messages.join(', '))
+      # Log other errors if any
+      Rails.logger.error(@post.errors.inspect)
       render :new
     end
   end
