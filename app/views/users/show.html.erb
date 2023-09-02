@@ -1,7 +1,7 @@
 <section class="flex flex-column users-view-section">
 
   <div class="flex flex-row card">
-    <img class='user-image' src=<%= @user.photo %> />
+    <img class='user-image' src=<%= @user.photo %>  alt='profile picture'/>
     <div class='flex flex-row user-blog-info'>
       <span class='flex flex-column user-blog-username'><%=  @user.name%></span>
       <span class='flex flex-column user-blog-posts'>Number of Posts: <%= @user.post_counter || 0 %></span>
