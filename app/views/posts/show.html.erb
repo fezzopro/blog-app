@@ -22,8 +22,8 @@
         </span>
     <% end %>
     <div class="flex flex-column">
-      <%= render partial: 'comments/comment', locals: { comment: @comment, user: @user, post: @post } %>
-      <%= render partial: 'likes/like', locals: { post: @post } %>
+      <%= render partial: 'comments/comment', locals: { comment: @comment, user: @user, post: @post } if user_signed_in? %>
+      <%= render partial: 'likes/like', locals: { post: @post } if user_signed_in? %>
     </div>
   </div>
   
