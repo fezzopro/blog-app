@@ -3,7 +3,7 @@ RSpec.describe 'Posts', type: :feature do
   describe 'index page' do
     before(:example) do
       @user = User.create(name: 'Felix', photo: 'image.png',
-                          bio: 'Developer.', posts_counter: 0)
+                          bio: 'Developer.', post_counter: 0)
       @post1 = Post.create(author: @user, title: 'Post 1', text: 'This is my first post', likes_counter: 0,
                            comments_counter: 0, id: 1196)
       @post2 = Post.create(author: @user, title: 'Post Two', text: 'This is my second post', likes_counter: 0,
@@ -26,7 +26,7 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content(@user.name)
     end
     it "renders the user's post count" do
-      expect(page).to have_content(@user.posts_counter)
+      expect(page).to have_content(@user.post_counter)
     end
     it "renders the user's posts" do
       expect(page).to have_content(@post1.title)
