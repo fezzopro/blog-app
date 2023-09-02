@@ -5,7 +5,9 @@ RSpec.describe User, type: :model do
     User.new(
       name: 'Test User',
       bio: 'I am a test user',
-      post_counter: 0
+      post_counter: 0,
+      email: 'Alice@gmail.com',
+      password: '123456'
     )
   end
 
