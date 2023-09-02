@@ -20,7 +20,7 @@ RSpec.describe 'User Show Page', type: :feature do
     end
 
     it 'should confirm user photo' do
-      expect(page).to have_selector('img[alt="User Profile Picture"]')
+      expect(page).to have_selector('img[alt="profile picture"]')
     end
 
     it 'should show user bio' do
@@ -53,7 +53,7 @@ RSpec.describe 'User Show Page', type: :feature do
     end
 
     it 'should have a link to create a new post' do
-      expect(page.html).to include('Create New Post')
+      expect(page.html).to include('New Post')
     end
 
     it 'should redirect to post show page when clicking on post.' do

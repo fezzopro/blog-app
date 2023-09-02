@@ -18,7 +18,7 @@ RSpec.describe 'User index page', type: :feature do
     expect(page).to have_content('Number of Posts: 0')
   end
   it 'redirects to that users show page when a user clicked' do
-    click_link('More info', match: :prefer_exact)
+    click_link('Tom', match: :prefer_exact)
     expect(page).to have_content('Bio')
   end
 end

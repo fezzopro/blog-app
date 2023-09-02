@@ -4,7 +4,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
     before(:example) do
       User.create(name: 'Felix', photo: 'image.png',
-                          bio: 'Developer.', post_counter: 0)
+                  bio: 'Developer.', post_counter: 0)
     end
     it 'eager loads all files without errors' do
       expect { Rails.application.eager_load! }.not_to raise_error
@@ -12,7 +12,6 @@ RSpec.describe 'Users', type: :request do
 
     it 'should be successfull' do
       get '/users'
-      # puts(response)
       assert_response :success
     end
 
