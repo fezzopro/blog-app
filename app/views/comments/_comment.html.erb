@@ -1,4 +1,4 @@
-<%= form_with(model: @comment, url: user_post_comments_path(@current_user, @post),
+<%= form_with(model: @comment, url: user_post_comments_path(current_user, @post),
         local: true, html: { class: "flex flex-column" }) do |f| %>
   <div class="flex flex-column button-control">
     <%= f.label :'New Comment' %>

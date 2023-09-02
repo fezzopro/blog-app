@@ -13,8 +13,21 @@
   <body>
     <section class='flex flex-column users-view-section'>
       <div class="flash-notice">
-        <% if flash[:notice] %>
-          <p class="success-notice"><%= flash[:notice] %></p>
+        <p class="success-notice"><%= notice %></p>
+        <p class="alert-notice"><%= alert %></p>
+      </div>
+      <div class="flex devise-options">
+        <% if user_signed_in? %>
+          <span>Logged in as: </span>
+          <div class="flex">
+            <span><strong class="logged-email"><%= " #{current_user.email}" %></strong></span>
+          </div>
+          
+          <%= link_to 'Edit profile', edit_user_registration_path, class: "edit-button" %> 
+          <%= button_to "logout", destroy_user_session_path, method: :delete, class: "logout-button" %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, class: "edit-button" %> 
+          <%= link_to "Login", new_user_session_path, class: "edit-button" %>
         <% end %>
       </div>
     </section>

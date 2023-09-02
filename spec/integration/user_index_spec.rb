@@ -4,11 +4,11 @@ RSpec.feature 'User Index Page', type: :feature do
   let(:users) do
     [
       User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                  bio: 'Teacher from Poland.', post_counter: 0),
+                  bio: 'Teacher from Poland.', post_counter: 0, email: 'lilly@gmail.com', password: '123456'),
       User.create(name: 'John', photo: 'https://unsplash.com/photos/abc123',
-                  bio: 'Engineer from USA.', post_counter: 2),
+                  bio: 'Engineer from USA.', post_counter: 2, email: 'John@gmail.com', password: '123456'),
       User.create(name: 'Alice', photo: 'https://unsplash.com/photos/xyz456',
-                  bio: 'Artist from France.', post_counter: 5)
+                  bio: 'Artist from France.', post_counter: 5, email: 'Alice@gmail.com', password: '123456')
     ]
   end
 

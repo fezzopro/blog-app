@@ -3,7 +3,7 @@ RSpec.describe 'Post Index Page', type: :feature do
   describe 'Viewing Post Index page' do
     before(:each) do
       @user1 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos', bio: 'Teacher from Mexico.',
-                           post_counter: 0)
+                           post_counter: 0, email: 'test@gmail.com', password: '123456')
       @first_post = Post.create(author: @user1, title: 'post1', text: 'This is my first post', comments_counter: 0,
                                 likes_counter: 0)
       @comment1 = Comment.create(post: @first_post, author: @user1, text: 'Hi Tom!, Nice comment')

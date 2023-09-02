@@ -55,13 +55,18 @@ body {
   padding: 1% 2%;
 }
 
-.button {
+.button,
+.logout-button,
+.edit-button,
+.login-button {
   padding: 1rem;
   font-weight: 600;
   background: #0076ff;
   color: #fefefe;
   text-decoration: none;
   border-radius: 4%;
+  border: 0;
+  height: 100%;
 }
 
 .button-control {
@@ -73,6 +78,23 @@ body {
   font-size: 2rem;
 }
 
+.alert-notice,
+#error_explanation {
+  color: rgb(153, 9, 9);
+  font-size: 1rem;
+}
+
 footer {
   padding-top: 5% !important;
+}
+
+.devise-options {
+  justify-content: flex-end;
+  gap: 2rem;
+  align-items: center;
+}
+
+.signup {
+  display: flex;
+  gap: 2rem;
 }
