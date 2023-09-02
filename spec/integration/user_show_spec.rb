@@ -3,7 +3,7 @@ RSpec.describe 'User Show Page', type: :feature do
   describe 'Viewing user show page' do
     before(:each) do
       @user1 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos', bio: 'Teacher from Mexico.',
-                           post_counter: 0)
+                           posts_counter: 0)
       @first_post = Post.create(author: @user1, title: 'post1', text: 'This is my first post', comments_counter: 0,
                                 likes_counter: 0)
       @second_post = Post.create(author: @user1, title: 'post2', text: 'This is my second post', comments_counter: 0,
@@ -27,8 +27,8 @@ RSpec.describe 'User Show Page', type: :feature do
       expect(page).to have_content(@user1.bio)
     end
 
-    it 'should show post_counter for user' do
-      expect(page).to have_content(@user1.post_counter)
+    it 'should show posts_counter for user' do
+      expect(page).to have_content(@user1.posts_counter)
     end
 
     it "I can see the user's first 3 posts." do

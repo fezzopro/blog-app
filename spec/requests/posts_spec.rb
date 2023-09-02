@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     user = User.create(name: 'Anything', photo: 'http://licalhost:3000/anything.jpg', bio: 'Anything test',
-                       post_counter: 0)
+                       posts_counter: 0)
     Post.create(author: user, title: 'post', text: 'This is my post', comments_counter: 0, likes_counter: 0)
     it 'returns http success' do
       get "/users/#{user.id}/posts"
@@ -21,7 +21,7 @@ RSpec.describe 'Posts', type: :request do
 
   describe 'GET /show' do
     user = User.create(name: 'Anything', photo: 'http://licalhost:3000/anything.jpg', bio: 'Anything test',
-                       post_counter: 0)
+                       posts_counter: 0)
     post = Post.create(author: user, title: 'post', text: 'This is my post', comments_counter: 0, likes_counter: 0)
     it 'returns http success' do
       get "/users/#{user.id}/posts/#{post.id}"
