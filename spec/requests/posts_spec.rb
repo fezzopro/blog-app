@@ -1,45 +1,39 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
-  let(:user) do
-    { id: 1 }
-  end
-
-  let(:post) do
-    { id: 1 }
-  end
-
-  describe 'main post\'s page' do
-    it 'should render the main page successfully' do
-      get "/users/#{user[:id]}/posts"
+RSpec.describe 'Posts', type: :request do
+  describe 'GET /index' do
+    user = User.create(name: 'Anything', photo: 'http://licalhost:3000/anything.jpg', bio: 'Anything test',
+                       post_counter: 0)
+    Post.create(author: user, title: 'post', text: 'This is my post', comments_counter: 0, likes_counter: 0)
+    it 'returns http success' do
+      get "/users/#{user.id}/posts"
       expect(response).to have_http_status(:success)
     end
-
-    it 'should render index template of post' do
-      get "/users/#{user[:id]}/posts"
+    it 'renders the index template' do
+      get "/users/#{user.id}/posts"
       expect(response).to render_template(:index)
     end
-
-    it 'should render All posts by single user' do
-      get "/users/#{user[:id]}/posts"
-      expect(response.body).to include('All posts by single user')
+    it 'includes correct placeholder text in the response body' do
+      get "/users/#{user.id}/posts"
+      expect(response.body).to include('List Recent Posts of a User')
     end
   end
 
-  describe 'show page of posts' do
-    it 'Should render Individual post by single user successfully' do
-      get "/users/#{user[:id]}/posts/#{post[:id]}"
+  describe 'GET /show' do
+    user = User.create(name: 'Anything', photo: 'http://licalhost:3000/anything.jpg', bio: 'Anything test',
+                       post_counter: 0)
+    post = Post.create(author: user, title: 'post', text: 'This is my post', comments_counter: 0, likes_counter: 0)
+    it 'returns http success' do
+      get "/users/#{user.id}/posts/#{post.id}"
       expect(response).to have_http_status(:success)
     end
-
-    it 'render show template of post' do
-      get "/users/#{user[:id]}/posts/#{post[:id]}"
+    it 'renders the show template' do
+      get "/users/#{user.id}/posts/#{post.id}"
       expect(response).to render_template(:show)
     end
-
-    it 'shows the post\'s show page data' do
-      get "/users/#{user[:id]}/posts/#{post[:id]}"
-      expect(response.body).to include('Individual post by single user')
+    it 'includes correct placeholder text in the response body' do
+      get "/users/#{user.id}/posts/#{post.id}"
+      expect(response.body).to include('Selected Post of a User')
     end
   end
 end

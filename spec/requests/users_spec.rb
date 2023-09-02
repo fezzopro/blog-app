@@ -2,52 +2,33 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
-    before(:example) do
-      User.create(name: 'Felix', photo: 'image.png',
-                          bio: 'Developer.', post_counter: 0)
+    it 'returns http success' do
+      get users_path
+      expect(response).to have_http_status(:success)
     end
-    it 'eager loads all files without errors' do
-      expect { Rails.application.eager_load! }.not_to raise_error
+    it 'renders the index template' do
+      get users_path
+      expect(response).to render_template(:index)
     end
-
-    it 'should be successfull' do
-      get '/users'
-      # puts(response)
-      assert_response :success
+    it 'includes correct placeholder text in the response body' do
+      get users_path
+      expect(response.body).to include('List all the Users')
     end
-
-    # it 'should return HTTP 200 status code' do
-    #   get '/users'
-    #   puts(response)
-    #   expect(response.status).to eq(200)
-    # end
-
-    # it 'should render users view template' do
-    #   get '/users'
-    #   expect(response).to render_template('users/index')
-    #   expect(response).to render_template(:index)
-    # end
-
-    # it 'should return the correct content' do
-    #   get '/users'
-    #   expect(response.body).to include('All users')
-    # end
   end
 
-  let(:user) do
-    { id: 1 }
+  describe 'GET /show' do
+    let(:user) { User.create(name: 'Stella', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Rusia.', post_counter: 0, id: 1) }
+    it 'returns http success' do
+      get "/users/#{user.id}"
+      expect(response).to have_http_status(:success)
+    end
+    it 'renders the show template' do
+      get "/users/#{user.id}"
+      expect(response).to render_template(:show)
+    end
+    it 'includes correct placeholder text in the response body' do
+      get "/users/#{user.id}"
+      expect(response.body).to include('User details')
+    end
   end
-
-  # describe 'show page' do
-  #   it 'renders specific users\'s detail page successfully' do
-  #     get "/users/#{user[:id]}"
-  #     expect(response).to have_http_status(:success)
-  #   end
-
-  #   it 'should render specific user view' do
-  #     get "/users/#{user[:id]}"
-  #     expect(response).to render_template('users/show')
-  #     expect(response).to render_template(:show)
-  #   end
-  # end
 end
