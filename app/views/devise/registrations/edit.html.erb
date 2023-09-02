@@ -49,6 +49,8 @@
     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:"logout-button"%>
   </div>
 
-  <%= link_to "Back", :back %>
+  <div class="flex">
+    <%= link_to "Back", :back, class: "button" %>
+  </div>
   </div>
 </section>
